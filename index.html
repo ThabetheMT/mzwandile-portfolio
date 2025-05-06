@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mzwandile Tito Thabethe - Software Developer Portfolio</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Mzwandile Tito Thabethe</h1>
+        <p>Computer Science Diploma Student | Full-Stack Developer</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="about" class="section about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <img src="profile-image.jpg" alt="Mzwandile Tito Thabethe">
+            <div class="about-text">
+                <p>I am a Computer Science diploma student specializing in full-stack development, with expertise in both backend and frontend technologies. I excel in building robust backend systems using Java and Spring Boot, complemented by creating responsive frontends with HTML, CSS, and JavaScript. Currently awaiting graduation, I dedicate my spare time to enhancing my skills through personal projects and contributing to open-source repositories on GitHub. My goal is to develop seamless, scalable applications that deliver exceptional user experiences.</p>
+                <a href="Mzwandile_Tito_Thabethe_CV.pdf" class="cv-link" download>Download CV</a>
+                <a href="https://github.com/mzwandile/spring-boot-portfolio-backend" class="backend-link" target="_blank">View Backend Code</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section skills">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-item">Java</div>
+            <div class="skill-item">Spring Boot</div>
+            <div class="skill-item">HTML</div>
+            <div class="skill-item">CSS</div>
+            <div class="skill-item">JavaScript</div>
+            <div class="skill-item">RESTful APIs</div>
+            <div class="skill-item">MySQL</div>
+            <div class="skill-item">Git</div>
+        </div>
+    </section>
+
+    <section id="projects" class="section projects">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>E-Commerce Backend</h3>
+                <p>A Spring Boot-based backend for an e-commerce platform, featuring user authentication, product management, and order processing. Built with Java, MySQL, and RESTful APIs.</p>
+                <p><a href="https://github.com/yourusername/ecommerce-backend" target="_blank">View on GitHub</a></p>
+            </div>
+            <div class="project-card">
+                <h3>Task Management App</h3>
+                <p>A full-stack application with a Java Spring Boot backend and a frontend built using HTML, CSS, and JavaScript. Supports task creation, updates, and user management.</p>
+                <p><a href="https://github.com/yourusername/task-manager" target="_blank">View on GitHub</a></p>
+            </div>
+            <div class="project-card">
+                <h3>Personal Blog Platform</h3>
+                <p>A blog backend developed with Spring Boot, featuring post management and user comments. Frontend designed with HTML, CSS, and JavaScript for a responsive experience.</p>
+                <p><a href="https://github.com/yourusername/blog-platform" target="_blank">View on GitHub</a></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact">
+        <h2>Contact</h2>
+        <div id="form-message" class="form-message"></div>
+        <form id="contact-form" action="https://formspree.io/f/xzzrrwkp" method="POST">
+            <input type="hidden" name="_subject" value="New Contact Form Submission">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2025 Mzwandile Tito Thabethe. All rights reserved.</p>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>
