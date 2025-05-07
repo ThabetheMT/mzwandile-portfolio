@@ -216,3 +216,34 @@ footer {
         text-align: center;
     }
 }
+
+/* Footer social icons */
+.social-icons {
+    margin-top: 10px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.social-icons a {
+    color: #333; /* Adjust color to match your theme */
+    font-size: 24px; /* Icon size */
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #007bff; /* Hover color, e.g., blue */
+}
+
+/* Optional: Specific colors for each icon */
+.social-icons a[href*="github.com"] {
+    color: #181717; /* GitHub black */
+}
+
+.social-icons a[href*="linkedin.com"] {
+    color: #0a66c2; /* LinkedIn blue */
+}
+
+.social-icons a[href*="wa.me"] {
+    color: #25d366; /* WhatsApp green */
+}

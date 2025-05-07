@@ -3,91 +3,492 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mzwandile Tito Thabethe - Software Developer Portfolio</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <!-- To use a custom domain, configure it in GitHub Pages settings (Repository > Settings > Pages > Custom domain) and set DNS records with your registrar. -->
+    <title>Mzwandile Tito Thabethe | Developer Portfolio</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-light: #3b82f6;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #94a3b8;
+            --success: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: all 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--primary-light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--dark);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--dark);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+
+        .btn:hover {
+            background: var(--primary-light);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title p {
+            color: var(--gray);
+        }
+
+        /* About */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .profile-img {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Skills */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+
+        .skill-card i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: all 0.2s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+
+        .project-img {
+            height: 200px;
+            background: var(--gray);
+            overflow: hidden;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .project-content p {
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        /* Contact */
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
-    <header>
-        <h1>Mzwandile Tito Thabethe</h1>
-        <p>Computer Science Diploma Student | Full-Stack Developer</p>
-    </header>
+<header>
+    <div class="container">
+        <nav>
+            <div class="logo">Mzwandile Thabethe</div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </div>
+</header>
 
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+<section class="hero">
+    <div class="container">
+        <h1>Full-Stack Developer & Computer Science Student</h1>
+        <p>Building scalable web applications with modern technologies and clean code practices.</p>
+        <a href="#contact" class="btn">Get In Touch</a>
+    </div>
+</section>
 
-    <section id="about" class="section about">
-        <h2>About Me</h2>
-        <div class="about-content">
-            <img src="profile-image.jpg" alt="Mzwandile Tito Thabethe">
-            <div class="about-text">
-                <p>Computer Science diploma student at Tshwane University of Technology, specializing in full-stack development. Proficient in Java, Spring Boot, SQL, and MySQL for robust backend systems, and HTML, CSS, JavaScript for responsive frontends. Awaiting graduation, I enhance skills through personal projects and open-source contributions on GitHub, aiming to create scalable, user-centric applications.</p>
-                <a href="Mzwandile_CV.pdf" class="cv-link" download>Download CV</a>
-                <!--
-                <a href="https://github.com/mzwandile/spring-boot-portfolio-backend" class="backend-link" target="_blank">View Backend Code</a>
-                -->
+<section id="about" class="about">
+    <div class="container">
+        <div class="section-title">
+            <h2>About Me</h2>
+            <p>Get to know me better</p>
+        </div>
+        <div class="about-grid">
+            <div class="profile-img">
+                <img src="profile-image.jpeg" alt="Mzwandile Tito Thabethe">
+            </div>
+            <div class="about-content">
+                <p>I'm a Computer Science diploma student at Tshwane University of Technology with a passion for building full-stack applications. My journey in tech combines academic knowledge with hands-on project experience.</p>
+                <p>I specialize in creating robust backend systems with Java and Spring Boot, while crafting intuitive frontend interfaces with modern JavaScript frameworks. When I'm not coding, you can find me contributing to open-source projects or learning new technologies.</p>
+                <p>Currently awaiting graduation, I'm focused on expanding my skill set through personal projects and collaborative development opportunities.</p>
+                <a href="Mzwandile_CV.pdf" class="btn" download style="margin-top: 1.5rem;">Download CV</a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="skills" class="section skills">
-        <h2>Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-item">Java</div>
-            <div class="skill-item">Spring Boot</div>
-            <div class="skill-item">HTML</div>
-            <div class="skill-item">CSS</div>
-            <div class="skill-item">JavaScript</div>
-            <div class="skill-item">RESTful APIs</div>
-            <div class="skill-item">MySQL</div>
-            <div class="skill-item">Git</div>
+<section id="skills" class="skills">
+    <div class="container">
+        <div class="section-title">
+            <h2>My Skills</h2>
+            <p>Technologies I work with</p>
         </div>
-    </section>
+        <div class="skills-container">
+            <div class="skill-card">
+                <i class="fab fa-java"></i>
+                <h3>Java</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-leaf"></i>
+                <h3>Spring Boot</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-js"></i>
+                <h3>JavaScript</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-html5"></i>
+                <h3>HTML5</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-css3-alt"></i>
+                <h3>CSS3</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-database"></i>
+                <h3>MySQL</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-code-branch"></i>
+                <h3>Git</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-server"></i>
+                <h3>REST APIs</h3>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <section id="projects" class="section projects">
-        <h2>Projects</h2>
+<section id="projects" class="projects">
+    <div class="container">
+        <div class="section-title">
+            <h2>My Projects</h2>
+            <p>Some of my recent work</p>
+        </div>
         <div class="projects-grid">
             <div class="project-card">
-                <h3>Account Management Backend</h3>
-                <p>A Spring Boot-based backend for managing user accounts, authentication, and permissions. Built with Java, MySQL, and RESTful APIs.</p>
-                <p><a href="https://github.com/ThabetheMT/AccountManagement" target="_blank">View on GitHub</a></p>
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Account Management">
+                </div>
+                <div class="project-content">
+                    <h3>Account Management</h3>
+                    <p>Spring Boot backend for user account management with authentication and permissions.</p>
+                    <a href="https://github.com/ThabetheMT/AccountManagement" target="_blank">View Project →</a>
+                </div>
             </div>
             <div class="project-card">
-                <h3>Salon Web Application</h3>
-                <p>A web application for salon management, allowing users to book appointments, view services, and manage profiles. Built with Spring Boot backend, and HTML, CSS, and JavaScript frontend.</p>
-                <p><a href="https://github.com/ThabetheMT/BeautySalon_WebApplication" target="_blank">View on GitHub</a></p>
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Salon Web App">
+                </div>
+                <div class="project-content">
+                    <h3>Salon Web Application</h3>
+                    <p>Complete salon management system with appointment booking and service catalog.</p>
+                    <a href="https://github.com/ThabetheMT/BeautySalon_WebApplication" target="_blank">View Project →</a>
+                </div>
             </div>
             <div class="project-card">
-                <h3>Kangaroo-Quiz App</h3>
-                <p>A full-stack application where students can take quizzes and access flashcards based on the Kangaroo short story. Built with a Spring Boot backend and HTML, CSS, JavaScript frontend.</p>
-                <p><a href="https://github.com/ThabetheMT/Kangaroo-quiz" target="_blank">View on GitHub</a></p>
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Quiz App">
+                </div>
+                <div class="project-content">
+                    <h3>Kangaroo Quiz App</h3>
+                    <p>Interactive quiz application based on the Kangaroo short story with flashcards.</p>
+                    <a href="https://github.com/ThabetheMT/Kangaroo-quiz" target="_blank">View Project →</a>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="contact" class="section contact">
-        <h2>Contact</h2>
-        <p>Contact me directly at: +27 762 412 129 or <a href="mailto:mzwandileT21@gmail.com">mzwandileT21@gmail.com</a>.</p>
-        <p>Fill out the form below to send me a message. Emails will be sent to my Gmail inbox (<a href="mailto:mzwandileT21@gmail.com">mzwandileT21@gmail.com</a>).</p>
-        <div id="form-message" class="form-message"></div>
-        <form id="contact-form" action="https://formspree.io/f/xzzrrwkp" method="POST">
-            <input type="hidden" name="_subject" value="New Contact Form Submission">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-    </section>
+<section id="contact" class="contact">
+    <div class="container">
+        <div class="section-title">
+            <h2>Get In Touch</h2>
+            <p>Let's work together</p>
+        </div>
+        <div class="contact-container">
+            <form id="contact-form" action="https://formspree.io/f/xzzrrwkp" method="POST">
+                <input type="hidden" name="_subject" value="New Contact Form Submission">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+</section>
 
-    <footer>
-        <p>© 2025 Mzwandile Tito Thabethe. All rights reserved.</p>
-    </footer>
-    <script src="js/script.js"></script>
+<footer>
+    <div class="container">
+        <h3>Mzwandile Tito Thabethe</h3>
+        <p>Computer Science Student | Full-Stack Developer</p>
+        <div class="social-links">
+            <a href="https://github.com/ThabetheMT" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="www.linkedin.com/in/mzwandile-thabethe-0385a1285/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://wa.me/27762412129" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p>© 2025 All rights reserved</p>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const contactForm = document.getElementById('contact-form');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const formData = new FormData(contactForm);
+
+                fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                    .then(response => {
+                        if (response.ok) {
+                            alert('Thank you for your message! I will get back to you soon.');
+                            contactForm.reset();
+                        } else {
+                            throw new Error('Network response was not ok');
+                        }
+                    })
+                    .catch(error => {
+                        alert('Oops! There was a problem sending your message. Please try again later.');
+                        console.error('Error:', error);
+                    });
+            });
+        }
+    });
+</script>
 </body>
 </html>
